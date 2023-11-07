@@ -1,7 +1,8 @@
 use reqwest;
 
 pub async fn fetch_category_page(url: &str) -> Result<String, reqwest::Error> {
-    let response = reqwest::
-    let body = response;
+    println!("Fetching content from: {:?}", url);
+    let response = reqwest::get(url).await?;
+    let body = response.text().await?;
     Ok(body)
 }
